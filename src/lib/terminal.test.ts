@@ -23,12 +23,19 @@ describe('terminal seguro e previsível', () => {
       expect(executeCommand(input, commands)).toContain('não encontrado')
   })
   it('não abre links ausentes e não navega para experiência vazia', () => {
-    const { commands, actions } = setup()
-    expect(executeCommand('github', commands)).toContain('não configurado')
-    expect(executeCommand('linkedin', commands)).toContain('não configurado')
-    expect(executeCommand('experience', commands)).toContain('não cadastrada')
-    expect(actions.open).not.toHaveBeenCalled()
-    expect(actions.navigate).not.toHaveBeenCalled()
+    const original = { github: profile.github, linkedin: profile.linkedin }
+    try {
+      profile.github = ''
+      profile.linkedin = ''
+      const { commands, actions } = setup()
+      expect(executeCommand('github', commands)).toContain('não configurado')
+      expect(executeCommand('linkedin', commands)).toContain('não configurado')
+      expect(executeCommand('experience', commands)).toContain('não cadastrada')
+      expect(actions.open).not.toHaveBeenCalled()
+      expect(actions.navigate).not.toHaveBeenCalled()
+    } finally {
+      Object.assign(profile, original)
+    }
   })
   it('abre links configurados e experiência disponível', () => {
     const original = profile.github
@@ -55,11 +62,14 @@ describe('terminal seguro e previsível', () => {
 })
 describe('filtros de projetos', () => {
   it('preserva todos os projetos e retorna somente a categoria solicitada', () => {
-    expect(filterProjects(projects, 'Todos')).toHaveLength(3)
+    expect(filterProjects(projects, 'Todos')).toHaveLength(5)
     expect(filterProjects(projects, 'Mobile').map((item) => item.id)).toEqual([
-      'orbit',
+      'duelo',
     ])
-    expect(filterProjects(projects, 'Full Stack')).toEqual([])
-    expect(projects).toHaveLength(3)
+    expect(
+      filterProjects(projects, 'Full Stack').map((item) => item.id),
+    ).toEqual(['agenda', 'sedallis'])
+    expect(filterProjects([], 'Full Stack')).toEqual([])
+    expect(projects).toHaveLength(5)
   })
 })

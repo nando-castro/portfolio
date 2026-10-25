@@ -1,9 +1,24 @@
 import { useState } from 'react'
-import { ArrowUpRight, Flower2, Workflow, Orbit } from 'lucide-react'
+import {
+  ArrowUpRight,
+  Flower2,
+  Workflow,
+  Orbit,
+  CalendarDays,
+  Building2,
+} from 'lucide-react'
 import type { Project } from '../data/projects'
 export function ProjectArt({ project }: { project: Project }) {
   const Icon =
-    project.id === 'flora' ? Flower2 : project.id === 'flow' ? Workflow : Orbit
+    project.id === 'flora'
+      ? Flower2
+      : project.id === 'flow'
+        ? Workflow
+        : project.id === 'agenda'
+          ? CalendarDays
+          : project.id === 'sedallis'
+            ? Building2
+            : Orbit
   return (
     <div className={`project-art art-${project.id}`} aria-hidden="true">
       <div className="art-grid" />

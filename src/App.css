@@ -514,9 +514,20 @@ main > * {
   background: #13232c;
   color: #7cc9df;
 }
-.art-orbit {
+.art-duelo {
   background: #231c34;
   color: #bba2ee;
+}
+.art-agenda {
+  background: #192536;
+  color: #9fbff5;
+}
+.art-sedallis {
+  background: #2a241b;
+  color: #d9c195;
+}
+.featured-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .project-body {
   padding: 20px 18px;

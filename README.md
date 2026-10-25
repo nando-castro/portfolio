@@ -1,8 +1,23 @@
 # Fernando Sousa — Portfólio
 
+**Desenvolvedor Full Stack**
+
+> Do componente à API, construo aplicações completas com JavaScript e TypeScript.
+
+Meu foco é o desenvolvimento de ponta a ponta com JavaScript e TypeScript: da interface à construção e integração de APIs. Tenho interesse em automação e em soluções que simplifiquem processos de negócios.
+
+## Contato
+
+- **LinkedIn:** [Fernando Sousa](https://www.linkedin.com/in/nandocastro/)
+- **GitHub:** [@nando-castro](https://github.com/nando-castro)
+- **E-mail:** [sousa.fernandocastro@gmail.com](mailto:sousa.fernandocastro@gmail.com)
+- **WhatsApp:** [+55 (98) 98406-0181](https://wa.me/5598984060181)
+
+## Sobre o portfólio
+
 Portfólio em português do Brasil, com interface inspirada em uma IDE. Apresentação imediata, explorador de arquivos, abas, projetos com filtros e detalhes, habilidades, contato e terminal opcional. Layout responsivo, navegação por hash, tema verde/ciano persistido e identidade visual feita com CSS e ícones.
 
-Os três projetos iniciais são **conteúdo demonstrativo a revisar**. Não representam entregas, publicações ou resultados comprovados. Experiências profissionais vazias e links não configurados ficam ocultos.
+A apresentação inicial destaca apenas **Flora e Flow**. A seção Projetos reúne também **Duelo dos Números**, **Agendamento • App e API** e **Sistema da Sedallis**. Cada item informa seu status; conceitos demonstrativos não são apresentados como entregas comerciais. Experiências profissionais vazias e links não configurados ficam ocultos.
 
 ## Stack e requisitos
 
@@ -11,6 +26,20 @@ Os três projetos iniciais são **conteúdo demonstrativo a revisar**. Não repr
 - Oxlint, Vitest, Testing Library e Prettier no desenvolvimento.
 - Node.js **22.12 ou superior** e npm. Sem backend, autenticação, chaves ou serviços pagos.
 - Fontes Google Fonts com fallback local: o site continua funcional sem carregá-las.
+
+## Tecnologias do perfil
+
+| Área                      | Tecnologias                                                |
+| ------------------------- | ---------------------------------------------------------- |
+| Linguagens                | TypeScript, JavaScript, Java                               |
+| Frontend                  | React, Next.js, HTML5, CSS3, Ant Design, Styled-components |
+| Mobile                    | React Native                                               |
+| Backend                   | Node.js, NestJS, Express, Spring, Prisma, APIs REST        |
+| Bancos de dados           | PostgreSQL, MongoDB, MySQL, Redis                          |
+| Testes e infraestrutura   | Jest, Cypress, Docker, Linux, Nginx, Vercel                |
+| Ferramentas e integrações | Git, GitHub, APIs REST                                     |
+
+Essa é a stack apresentada no perfil. As dependências utilizadas para construir este site estão listadas na seção anterior e no `package.json`.
 
 ## Executar localmente
 
@@ -34,37 +63,53 @@ No PowerShell com scripts bloqueados, use `npm.cmd ci` e `npm.cmd run dev`, sem 
 | `npm run format`       | Formatar código e documentação               |
 | `npm run format:check` | Verificar formatação                         |
 
-## Editar os dados
+## Organização dos dados
 
 Os arquivos em `src/data/` são a fonte dos dados pessoais:
 
 - `profile.ts`: nome, iniciais, cargo, apresentação, sobre, e-mail, URLs de GitHub, LinkedIn e WhatsApp, e caminho do currículo.
-- `skills.ts`: grupos e tecnologias. Não há porcentagens de domínio. Banco de dados está explicitamente a confirmar.
+- `skills.ts`: linguagens, frontend, backend, bancos de dados, testes e infraestrutura, ferramentas e integrações. Tecnologias configuradas conforme a stack informada, sem porcentagens de domínio.
 - `projects.ts`: projetos tipados, categoria, descrição, problema, solução/participação, funcionalidades, decisões, stack, status, imagem, repositório e demonstração.
-- `experience.ts`: lista tipada inicialmente vazia. Ao adicionar itens, a seção, o explorador e o comando `experience` passam a exibi-la automaticamente.
+- `experience.ts`: experiência na SEAP — Maranhão, exibida na linha do tempo, no explorador e pelo comando `experience`.
 
 Use URLs completas `https://...` nos contatos, repositórios e demonstrações. Em `email`, informe apenas o endereço. Para WhatsApp, use `https://wa.me/` seguido do número internacional real. Mantenha campos desconhecidos como string vazia; não use `#` como link provisório.
 
-Modelo de experiência (substitua todos os campos por informações reais):
+### Experiência profissional
 
-```ts
-{
-  id: 'identificador-unico',
-  role: 'CARGO REAL',
-  company: 'EMPRESA REAL',
-  period: 'PERÍODO REAL',
-  responsibilities: ['RESPONSABILIDADE REAL'],
-  technologies: ['TECNOLOGIA UTILIZADA'],
-}
-```
+**SEAP — Maranhão · Desenvolvimento Full Stack**
+
+- Atuação em diversos sistemas do Estado do Maranhão, do desenvolvimento de APIs às interfaces frontend.
+- Refatoração de sistemas legados.
+- Participação na construção de um sistema de reconhecimento facial implementado nas unidades prisionais.
+
+A experiência foi incluída conforme informada por Fernando Sousa. “Desenvolvimento Full Stack” descreve a atuação, sem atribuir um cargo formal. Período e tecnologias específicas desse trabalho não foram informados e não são exibidos.
 
 ## Projetos e imagens
+
+| Projeto                  | Categoria  | Proposta                                                          | Status                                             |
+| ------------------------ | ---------- | ----------------------------------------------------------------- | -------------------------------------------------- |
+| Flora • Catálogo digital | Frontend   | Catálogo de floricultura com carrinho e finalização pelo WhatsApp | Repositório informado, escopo a confirmar          |
+| Flow • Atendimento       | Automação  | Automação de atendimento para negócios locais                     | Demonstrativo, a revisar                           |
+| Duelo dos Números        | Mobile     | Jogo mobile com demonstração web                                  | Demonstração web informada, stack a confirmar      |
+| Agendamento • App e API  | Full Stack | Aplicação de agendamento de horários                              | Código disponível, entrega comercial não informada |
+| Sistema da Sedallis      | Full Stack | Sistema empresarial informado                                     | Participação e stack a detalhar                    |
+
+Links configurados:
+
+- Floricultura Mistérios: [site](https://floricultura-misterios.vercel.app/) e [repositório](https://github.com/nando-castro/floricultura-misterios).
+- Duelo dos Números: [jogar na web](https://duelo-numeros-web.vercel.app/) e [repositório](https://github.com/nando-castro/duelo-dos-numeros-game).
+- Agendamento: [site](https://app-agendamento-saas.vercel.app/), [repositório do app](https://github.com/nando-castro/app-agendamento-saas) e [repositório da API](https://github.com/nando-castro/api-agendamento-saas).
+- [Site da Sedallis](https://sedallis.com.br/), identificado como site da empresa, sem afirmar que seja uma demonstração do sistema desenvolvido.
+
+Na consulta pública desta atualização, os repositórios do jogo e da floricultura retornaram 404, e o site da Sedallis não pôde ser consultado. Os links fornecidos foram preservados; isso não confirma se os repositórios são privados ou foram movidos. A stack do agendamento foi conferida nos arquivos `package.json` dos repositórios públicos.
 
 Adicione objetos à lista `projects`, respeitando a interface `Project`. As categorias aceitas são Frontend, Full Stack, Automação e Mobile. O filtro Todos reúne os itens. Uma categoria sem itens exibe uma mensagem apropriada.
 
 Coloque imagens reais em `public/images/` e use um caminho relativo, por exemplo `image: 'images/meu-projeto.webp'`, com `imageAlt` descritivo. O prefixo do GitHub Pages é aplicado automaticamente. Não inclua `public/` no caminho. Sem imagem, ou se seu carregamento falhar, aparece a composição gráfica. Essas artes são conceitos visuais, não capturas de aplicações entregues.
 
-Antes de publicar projetos reais, revise também os textos de introdução demonstrativa em `src/App.tsx`. O status de cada card e modal vem do campo `status`. Links vazios ficam ocultos. Os nomes Flora, Flow e Orbit são títulos ilustrativos editáveis.
+O campo `featured: true` controla quais projetos aparecem na apresentação inicial; apenas Flora e Flow estão destacados. O status de cada card e modal vem de `status`. O campo `additionalRepositories` permite links adicionais, como a API do agendamento; `demoLabel` permite distinguir um site empresarial de uma demonstração. Links vazios ficam ocultos.
+
+Flora e Flow são nomes de apresentação. Um projeto pode ser descrito sem demonstração pública, mas sua atribuição a clientes deve corresponder ao trabalho realmente realizado. Flow continua demonstrativo; o escopo e a participação nos demais projetos permanecem explícitos onde ainda não foram informados.
 
 ## Currículo
 
@@ -98,15 +143,15 @@ npm.cmd run preview
 Remove-Item Env:BASE_PATH
 ```
 
-## Placeholders a preencher
+## Estado atual do conteúdo
 
-- E-mail, GitHub e LinkedIn.
-- WhatsApp, se desejar.
-- PDF do currículo e respectivo caminho.
-- Conteúdo real dos três projetos: nome, escopo, participação, status, tecnologias, funcionalidades, decisões, imagens e URLs.
-- Stack do jogo mobile e tecnologias de banco de dados, ainda a confirmar.
-- Histórico profissional, somente quando houver informações completas.
-- Revisão final dos textos de apresentação e das referências a conteúdo demonstrativo.
+- **Configurados:** nome, cargo, apresentação, tecnologias, e-mail, GitHub, LinkedIn e WhatsApp.
+- **Projetos:** cinco itens, com Flora e Flow na apresentação inicial; links informados configurados e status individual, sem resultados ou entregas comerciais inventados.
+- **Currículo:** PDF não fornecido; botão de download oculto.
+- **Experiência profissional:** SEAP — Maranhão cadastrada e visível; período, cargo formal e stack específica não informados.
+- **Jogo mobile:** stack ainda não informada.
+
+O portfólio funciona com essa configuração. Os itens ausentes não exigem preenchimento para executar o projeto; continuam ocultos ou identificados como demonstrativos até existirem informações reais.
 
 ## Acessibilidade e validação
 

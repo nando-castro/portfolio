@@ -29,6 +29,7 @@ import { profile } from './data/profile'
 import {
   categories,
   filterProjects,
+  featuredProjects,
   projects,
   type Category,
   type Project,
@@ -382,11 +383,12 @@ function App() {
                     </button>
                   </div>
                   <p className="section-description">
-                    Três conceitos demonstrativos para apresentar soluções e
-                    decisões técnicas.
+                    Flora e Flow: soluções para catálogos digitais e
+                    atendimento. Consulte o status e os detalhes de cada
+                    projeto.
                   </p>
-                  <div className="project-grid">
-                    {projects.map((project) => (
+                  <div className="project-grid featured-grid">
+                    {featuredProjects.map((project) => (
                       <ProjectCard
                         key={project.id}
                         project={project}
@@ -469,12 +471,12 @@ function App() {
                   Da ideia à implementação<span className="accent">.</span>
                 </h1>
                 <p className="lead">
-                  Conceitos para explorar interfaces, integrações e novas
-                  experiências.
+                  Aplicações, integrações e conceitos para diferentes negócios.
                 </p>
                 <p className="notice">
-                  Conteúdo demonstrativo a revisar. Os exemplos abaixo não
-                  representam entregas ou resultados comprovados.
+                  Cada projeto informa seu status. Conceitos demonstrativos e
+                  informações ainda não detalhadas estão identificados nos
+                  cards.
                 </p>
                 <div className="filters" aria-label="Filtrar projetos">
                   {categories.map((item) => (
@@ -513,7 +515,7 @@ function App() {
                 <div className="timeline">
                   {experience.map((item) => (
                     <article key={item.id}>
-                      <span>{item.period}</span>
+                      {item.period && <span>{item.period}</span>}
                       <h2>{item.role}</h2>
                       <h3>{item.company}</h3>
                       <ul>
@@ -674,7 +676,7 @@ function App() {
               <p>{selected.problem}</p>
               <h3>Solução e participação</h3>
               <p>{selected.solution}</p>
-              <h3>Funcionalidades propostas</h3>
+              <h3>Funcionalidades e escopo</h3>
               <ul>
                 {selected.features.map((item) => (
                   <li key={item}>{item}</li>
@@ -709,9 +711,21 @@ function App() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Demonstração <ArrowUpRight size={16} />
+                    {selected.demoLabel || 'Demonstração'}{' '}
+                    <ArrowUpRight size={16} />
                   </a>
                 )}
+                {selected.additionalRepositories?.map((link) => (
+                  <a
+                    key={link.url}
+                    className="button secondary"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label} <Github size={16} />
+                  </a>
+                ))}
               </div>
             </div>
           </>

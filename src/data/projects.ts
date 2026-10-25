@@ -22,10 +22,14 @@ export interface Project {
   demo: string
   image?: string
   imageAlt?: string
+  featured?: boolean
+  additionalRepositories?: { label: string; url: string }[]
+  demoLabel?: string
 }
 export const projects: Project[] = [
   {
     id: 'flora',
+    featured: true,
     name: 'Flora • Catálogo digital',
     subtitle: 'Da escolha ao primeiro contato.',
     category: 'Frontend',
@@ -45,12 +49,13 @@ export const projects: Project[] = [
       'Proposta: estado do carrinho no cliente',
       'Proposta: componentes reutilizáveis para produtos',
     ],
-    status: 'Conteúdo demonstrativo · a revisar',
-    repository: '',
-    demo: '',
+    status: 'Repositório informado · escopo a confirmar',
+    repository: 'https://github.com/nando-castro/floricultura-misterios',
+    demo: 'https://floricultura-misterios.vercel.app/',
   },
   {
     id: 'flow',
+    featured: true,
     name: 'Flow • Atendimento',
     subtitle: 'Menos tarefas. Mais conversas.',
     category: 'Automação',
@@ -74,16 +79,17 @@ export const projects: Project[] = [
     demo: '',
   },
   {
-    id: 'orbit',
-    name: 'Orbit • Jogo mobile',
-    subtitle: 'Uma ideia em movimento.',
+    id: 'duelo',
+    name: 'Duelo dos Números',
+    subtitle: 'Jogo para dispositivos móveis.',
     category: 'Mobile',
     description:
-      'Espaço para apresentar um jogo mobile, suas mecânicas e decisões de desenvolvimento.',
+      'Jogo mobile Duelo dos Números, com link para o repositório do projeto.',
     technologies: ['Stack a confirmar'],
-    problem: 'Definir o público, a proposta do jogo e o desafio de interação.',
+    problem:
+      'Proposta de jogo mobile. Público e mecânicas ainda não detalhados.',
     solution:
-      'Conceito demonstrativo. Mecânicas, plataforma, solução e participação real a preencher.',
+      'Projeto informado por Fernando Sousa. Detalhes da implementação e participação ainda não descritos.',
     features: [
       'Mecânicas a definir',
       'Controles por toque a validar',
@@ -93,11 +99,58 @@ export const projects: Project[] = [
       'Engine e linguagem a confirmar',
       'Estratégia de desempenho a definir',
     ],
-    status: 'Conteúdo demonstrativo · a revisar',
+    status: 'Demonstração web informada · stack a confirmar',
+    repository: 'https://github.com/nando-castro/duelo-dos-numeros-game',
+    demo: 'https://duelo-numeros-web.vercel.app/',
+  },
+  {
+    id: 'agenda',
+    name: 'Agendamento • App e API',
+    subtitle: 'Aplicação e backend para agendamento de horários.',
+    category: 'Full Stack',
+    description:
+      'App de agendamento de horários com repositórios separados para a interface e a API.',
+    technologies: ['React', 'TypeScript', 'NestJS', 'Prisma', 'PostgreSQL'],
+    problem:
+      'Organizar o agendamento de horários em uma aplicação com interface e backend.',
+    solution:
+      'Aplicação web e API em repositórios próprios. Escopo da participação e contexto de uso ainda não detalhados.',
+    features: ['Agendamento de horários', 'Interface web', 'API de backend'],
+    decisions: [
+      'Separação entre aplicação e API',
+      'React e TypeScript no frontend',
+      'NestJS e Prisma no backend',
+    ],
+    status: 'Código disponível · entrega comercial não informada',
+    repository: 'https://github.com/nando-castro/app-agendamento-saas',
+    additionalRepositories: [
+      {
+        label: 'Repositório da API',
+        url: 'https://github.com/nando-castro/api-agendamento-saas',
+      },
+    ],
+    demo: 'https://app-agendamento-saas.vercel.app/',
+  },
+  {
+    id: 'sedallis',
+    name: 'Sistema da Sedallis',
+    subtitle: 'Projeto empresarial informado.',
+    category: 'Full Stack',
+    description:
+      'Sistema da Sedallis, com link para o site da empresa. Escopo técnico e participação a detalhar.',
+    technologies: ['Stack a confirmar'],
+    problem: 'Contexto e necessidades do sistema ainda não informados.',
+    solution:
+      'Projeto incluído conforme informado por Fernando Sousa. Responsabilidades, escopo e entregas ainda não detalhados.',
+    features: ['Funcionalidades não detalhadas'],
+    decisions: ['Arquitetura e tecnologias a confirmar'],
+    status: 'Projeto informado · participação a detalhar',
     repository: '',
-    demo: '',
+    demo: 'https://sedallis.com.br/',
+    demoLabel: 'Site da empresa',
   },
 ]
+export const featuredProjects = projects.filter((project) => project.featured)
 export const filterProjects = (items: Project[], category: Category) =>
   items.filter(
     (project) => category === 'Todos' || project.category === category,

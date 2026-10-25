@@ -33,8 +33,23 @@ describe('experiência do visitante', () => {
       'Fernando',
     )
     expect(screen.queryByRole('textbox')).toBeNull()
-    expect(screen.queryByRole('link', { name: /GitHub/ })).toBeNull()
-    expect(screen.queryByRole('button', { name: 'experience.ts' })).toBeNull()
+    expect(
+      screen.getByRole('link', { name: /GitHub/ }).getAttribute('href'),
+    ).toBe(profile.github)
+    expect(
+      screen.getByRole('link', { name: /LinkedIn/ }).getAttribute('href'),
+    ).toBe(profile.linkedin)
+    expect(
+      within(
+        screen.getByRole('navigation', { name: 'Seções do portfólio' }),
+      ).getByRole('button', { name: 'experience.ts' }),
+    ).toBeTruthy()
+    expect(screen.getAllByRole('article')).toHaveLength(2)
+    expect(screen.getByRole('button', { name: /Flora •/ })).toBeTruthy()
+    expect(screen.getByRole('button', { name: /Flow •/ })).toBeTruthy()
+    expect(
+      screen.queryByRole('button', { name: 'Duelo dos Números' }),
+    ).toBeNull()
   })
   it('navega, filtra projetos, abre e fecha detalhes', async () => {
     const user = userEvent.setup()
@@ -42,14 +57,26 @@ describe('experiência do visitante', () => {
     await user.click(screen.getByRole('button', { name: 'Ver projetos' }))
     await user.click(screen.getByRole('button', { name: 'Mobile' }))
     expect(screen.queryByRole('button', { name: /Flora •/ })).toBeNull()
-    await user.click(screen.getByRole('button', { name: /Orbit •/ }))
+    await user.click(screen.getByRole('button', { name: 'Duelo dos Números' }))
     expect(screen.getByRole('dialog').textContent).toContain(
       'Decisões técnicas',
     )
     await user.click(screen.getByRole('button', { name: 'Fechar detalhes' }))
     expect(screen.queryByRole('dialog')).toBeNull()
     await user.click(screen.getByRole('button', { name: 'Full Stack' }))
-    expect(screen.getByRole('status').textContent).toContain('Nenhum projeto')
+    await user.click(
+      screen.getByRole('button', { name: 'Agendamento • App e API' }),
+    )
+    expect(
+      within(screen.getByRole('dialog'))
+        .getByRole('link', { name: 'Repositório' })
+        .getAttribute('href'),
+    ).toBe('https://github.com/nando-castro/app-agendamento-saas')
+    expect(
+      screen
+        .getByRole('link', { name: 'Repositório da API' })
+        .getAttribute('href'),
+    ).toBe('https://github.com/nando-castro/api-agendamento-saas')
   })
   it('executa comandos, autocompleta, recupera histórico e limpa saída', async () => {
     const user = userEvent.setup()
@@ -112,7 +139,7 @@ describe('experiência do visitante', () => {
     expect(document.activeElement).toBe(toggle)
     expect(toggle.getAttribute('aria-expanded')).toBe('false')
   })
-  it('responde à navegação por hash e oculta experiência vazia', async () => {
+  it('responde à navegação por hash e apresenta a experiência na SEAP', async () => {
     render(<App />)
     window.location.hash = 'skills'
     fireEvent(window, new HashChangeEvent('hashchange'))
@@ -125,9 +152,18 @@ describe('experiência do visitante', () => {
     fireEvent(window, new HashChangeEvent('hashchange'))
     await waitFor(() =>
       expect(screen.getByRole('heading', { level: 1 }).textContent).toContain(
-        'Fernando',
+        'Experiência',
       ),
     )
+    expect(
+      screen.getByRole('heading', { name: 'SEAP — Maranhão' }),
+    ).toBeTruthy()
+    expect(screen.getByText('Refatoração de sistemas legados.')).toBeTruthy()
+    expect(
+      screen.getByText(
+        /Participação na construção de um sistema de reconhecimento facial/,
+      ),
+    ).toBeTruthy()
   })
   it('copia e-mail configurado e informa falha de permissão', async () => {
     const original = profile.email
