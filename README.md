@@ -127,6 +127,21 @@ Coloque o PDF em `public/curriculo.pdf` e configure `resume: 'curriculo.pdf'` em
 
 Abra pelo botão Terminal na barra inferior. Ele começa fechado em todas as telas e não recebe foco automaticamente.
 
+O terminal também responde a conversas simples, sem IA ou serviços externos:
+
+| Entrada                               | Resposta                                         |
+| ------------------------------------- | ------------------------------------------------ |
+| `Heloo`, `hello` ou `hi`              | `hello world`                                    |
+| `olá`, `ola` ou `oi`                  | `Olá mundo`                                      |
+| `tudo bem?` ou `como vai?`            | Saudação e sugestão para explorar os projetos    |
+| `bom dia`, `boa tarde` ou `boa noite` | Boas-vindas                                      |
+| `quem é você?`                        | Explica o terminal e indica o perfil do Fernando |
+| `obrigado`, `obrigada` ou `valeu`     | Agradecimento e indicação do contato             |
+| `tchau`, `até mais` ou `bye`          | Despedida                                        |
+| `café`                                | Uma resposta sobre café e código                 |
+
+Maiúsculas, acentos e espaços extras são normalizados. As respostas ficam em `src/data/conversations.ts` e aparecem como sugestões no `help`. O autocompletar e o histórico também funcionam com essas frases. As conversas não executam ações nem simulam uma mensagem enviada ao Fernando.
+
 Comandos: `help`, `whoami`, `about`, `projects`, `skills`, `experience`, `contact`, `github`, `linkedin`, `clear` e `theme`. Setas recuperam o histórico; Tab completa um prefixo conhecido; comandos desconhecidos mostram ajuda. A lógica fica em `src/lib/terminal.ts` e usa um mapa explícito de funções, sem `eval` ou execução de entrada arbitrária. Histórico e saída existem apenas em memória; somente a preferência de cor vai para `localStorage`, com tratamento de falhas.
 
 ## GitHub Pages

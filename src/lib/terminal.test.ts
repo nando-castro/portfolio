@@ -12,6 +12,25 @@ const setup = (hasExperience = false) => {
   return { actions, commands: createCommands(actions) }
 }
 describe('terminal seguro e previsível', () => {
+  it('responde às saudações pedidas e suas variações sem executar ações', () => {
+    const { commands, actions } = setup()
+    expect(executeCommand('Heloo', commands)).toBe('hello world')
+    expect(executeCommand('HELLO', commands)).toBe('hello world')
+    for (const input of ['olá', 'OLA', '  Olá  ', 'ola\u0301', 'oi']) {
+      expect(executeCommand(input, commands)).toBe('Olá mundo')
+    }
+    expect(executeCommand('  TUDO   BEM? ', commands)).toContain('Tudo certo')
+    expect(executeCommand('quem é você?', commands)).toContain(
+      'respostas prontas',
+    )
+    expect(executeCommand('obrigada', commands)).toContain('Por nada')
+    expect(executeCommand('até mais', commands)).toContain('Até mais')
+    expect(actions.navigate).not.toHaveBeenCalled()
+    expect(actions.open).not.toHaveBeenCalled()
+    expect(actions.toggleTheme).not.toHaveBeenCalled()
+    expect(completeCommand('olá', Object.keys(commands))).toEqual(['ola'])
+    expect(executeCommand('help', commands)).toContain('Converse também')
+  })
   it('navega com normalização de espaços e maiúsculas', () => {
     const { actions, commands } = setup()
     executeCommand('  PROJECTS  ', commands)

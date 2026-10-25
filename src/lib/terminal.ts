@@ -1,4 +1,12 @@
 import { profile } from '../data/profile'
+import { conversations } from '../data/conversations'
+export const normalizeCommand = (input: string) =>
+  input
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
 export type Section =
   'home' | 'about' | 'skills' | 'experience' | 'projects' | 'contact'
 export interface TerminalActions {
@@ -20,8 +28,13 @@ export function createCommands(
     return `Abrindo ${label}.`
   }
   return {
+    ...Object.fromEntries(
+      conversations.flatMap(({ phrases, response }) =>
+        phrases.map((phrase) => [normalizeCommand(phrase), () => response]),
+      ),
+    ),
     help: () =>
-      'help · whoami · about · projects · skills · experience · contact · github · linkedin · clear · theme',
+      'Comandos: help · whoami · about · projects · skills · experience · contact · github · linkedin · clear · theme\nConverse também: hello · heloo · olá · tudo bem? · bom dia · quem é você? · obrigado · tchau · café',
     whoami: () => `${profile.name} — ${profile.role}. ${profile.headline}`,
     about: go('about', 'Sobre'),
     projects: go('projects', 'Projetos'),
@@ -44,10 +57,12 @@ export function executeCommand(
   input: string,
   commands: Record<string, () => string>,
 ) {
-  const command = input.trim().toLowerCase()
+  const command = normalizeCommand(input)
   return Object.hasOwn(commands, command)
     ? commands[command]()
-    : `Comando “${command}” não encontrado. Digite help para ver as opções.`
+    : `Comando ou conversa “${input.trim()}” não encontrado. Digite help para ver as opções ou experimente olá.`
 }
 export const completeCommand = (input: string, commands: string[]) =>
-  commands.filter((command) => command.startsWith(input.trim().toLowerCase()))
+  commands.filter((command) =>
+    normalizeCommand(command).startsWith(normalizeCommand(input)),
+  )

@@ -4,6 +4,7 @@ import {
   completeCommand,
   createCommands,
   executeCommand,
+  normalizeCommand,
   type TerminalActions,
 } from '../lib/terminal'
 export function Terminal({
@@ -17,7 +18,7 @@ export function Terminal({
   const [history, setHistory] = useState<string[]>([])
   const [position, setPosition] = useState(0)
   const [lines, setLines] = useState([
-    'Terminal do portfólio. Digite help para explorar.',
+    'Terminal do portfólio. Digite help para explorar ou olá para conversar.',
   ])
   const output = useRef<HTMLDivElement>(null)
   const commands = createCommands(actions)
@@ -47,7 +48,7 @@ export function Terminal({
           if (!input.trim()) return
           const result = executeCommand(input, commands)
           setLines((old) =>
-            input.trim().toLowerCase() === 'clear'
+            normalizeCommand(input) === 'clear'
               ? []
               : [...old, `❯ ${input}`, result],
           )
