@@ -31,9 +31,9 @@ A apresentação inicial destaca apenas **Flora e Flow**. A seção Projetos re�
 
 | Área                      | Tecnologias                                                |
 | ------------------------- | ---------------------------------------------------------- |
-| Linguagens                | TypeScript, JavaScript, Java                               |
+| Linguagens                | TypeScript, JavaScript, Java, Python                       |
 | Frontend                  | React, Next.js, HTML5, CSS3, Ant Design, Styled-components |
-| Mobile                    | React Native                                               |
+| Mobile                    | React Native, Expo                                         |
 | Backend                   | Node.js, NestJS, Express, Spring, Prisma, APIs REST        |
 | Bancos de dados           | PostgreSQL, MongoDB, MySQL, Redis                          |
 | Testes e infraestrutura   | Jest, Cypress, Docker, Linux, Nginx, Vercel                |
@@ -76,30 +76,38 @@ Use URLs completas `https://...` nos contatos, repositórios e demonstrações. 
 
 ### Experiência profissional
 
-**SEAP — Maranhão · Desenvolvimento Full Stack**
+**SEAP — Maranhão · Desenvolvedor Full Stack**
+
+**Período:** 03/2023 — atual, com término previsto em dezembro de 2026.
+
+**Tecnologias:** React, Node.js, Java e Python.
 
 - Atuação em diversos sistemas do Estado do Maranhão, do desenvolvimento de APIs às interfaces frontend.
 - Refatoração de sistemas legados.
 - Participação na construção de um sistema de reconhecimento facial implementado nas unidades prisionais.
 
-A experiência foi incluída conforme informada por Fernando Sousa. “Desenvolvimento Full Stack” descreve a atuação, sem atribuir um cargo formal. Período e tecnologias específicas desse trabalho não foram informados e não são exibidos.
+A experiência permanece em andamento. Dezembro é uma previsão de término, não uma saída já ocorrida.
 
 ## Projetos e imagens
 
-| Projeto                  | Categoria  | Proposta                                                          | Status                                             |
-| ------------------------ | ---------- | ----------------------------------------------------------------- | -------------------------------------------------- |
-| Flora • Catálogo digital | Frontend   | Catálogo de floricultura com carrinho e finalização pelo WhatsApp | Repositório informado, escopo a confirmar          |
-| Flow • Atendimento       | Automação  | Automação de atendimento para negócios locais                     | Demonstrativo, a revisar                           |
-| Duelo dos Números        | Mobile     | Jogo mobile com demonstração web                                  | Demonstração web informada, stack a confirmar      |
-| Agendamento • App e API  | Full Stack | Aplicação de agendamento de horários                              | Código disponível, entrega comercial não informada |
-| Sistema da Sedallis      | Full Stack | Sistema empresarial informado                                     | Participação e stack a detalhar                    |
+| Projeto                  | Categoria  | Escopo e participação                                                                                                | Status                                            |
+| ------------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Flora • Catálogo digital | Frontend   | Desenvolvimento integral para a Floricultura Mistérios, cliente real                                                 | Projeto para cliente                              |
+| Flow • Atendimento       | Automação  | Automação de atendimento, desenvolvimento particular e individual                                                    | Projeto pessoal em desenvolvimento                |
+| Duelo dos Números        | Mobile     | Desenvolvimento integral com React Native e Expo; descobrir a combinação de números do adversário primeiro           | Disponível para Android; expansão web planejada   |
+| Agendamento • App e API  | Full Stack | App e API desenvolvidos integralmente; registro, cadastro e agendamento de horários, pagamentos com Mercado Pago Pix | Projeto pessoal com funcionalidades implementadas |
+| Sistema da Sedallis      | Full Stack | Gestão de clínica particular de sedação; API, integração Google Calendar, partes do frontend e site institucional    | Projeto para empresa                              |
+
+**Stack da Sedallis:** React, NestJS e PostgreSQL, com integração ao Google Calendar.
+
+**Stack do agendamento:** React, TypeScript, NestJS, Prisma e PostgreSQL, com integração Mercado Pago Pix. Uso por clientes não foi informado; o projeto é apresentado como pessoal.
 
 Links configurados:
 
 - Floricultura Mistérios: [site](https://floricultura-misterios.vercel.app/) e [repositório](https://github.com/nando-castro/floricultura-misterios).
-- Duelo dos Números: [jogar na web](https://duelo-numeros-web.vercel.app/) e [repositório](https://github.com/nando-castro/duelo-dos-numeros-game).
+- Duelo dos Números: [prévia web](https://duelo-numeros-web.vercel.app/) e [repositório](https://github.com/nando-castro/duelo-dos-numeros-game).
 - Agendamento: [site](https://app-agendamento-saas.vercel.app/), [repositório do app](https://github.com/nando-castro/app-agendamento-saas) e [repositório da API](https://github.com/nando-castro/api-agendamento-saas).
-- [Site da Sedallis](https://sedallis.com.br/), identificado como site da empresa, sem afirmar que seja uma demonstração do sistema desenvolvido.
+- [Site da Sedallis](https://sedallis.com.br/), site institucional também desenvolvido por Fernando Sousa. O link não é apresentado como acesso ao sistema interno de gestão.
 
 Na consulta pública desta atualização, os repositórios do jogo e da floricultura retornaram 404, e o site da Sedallis não pôde ser consultado. Os links fornecidos foram preservados; isso não confirma se os repositórios são privados ou foram movidos. A stack do agendamento foi conferida nos arquivos `package.json` dos repositórios públicos.
 
@@ -109,7 +117,7 @@ Coloque imagens reais em `public/images/` e use um caminho relativo, por exemplo
 
 O campo `featured: true` controla quais projetos aparecem na apresentação inicial; apenas Flora e Flow estão destacados. O status de cada card e modal vem de `status`. O campo `additionalRepositories` permite links adicionais, como a API do agendamento; `demoLabel` permite distinguir um site empresarial de uma demonstração. Links vazios ficam ocultos.
 
-Flora e Flow são nomes de apresentação. Um projeto pode ser descrito sem demonstração pública, mas sua atribuição a clientes deve corresponder ao trabalho realmente realizado. Flow continua demonstrativo; o escopo e a participação nos demais projetos permanecem explícitos onde ainda não foram informados.
+Flora é um trabalho para cliente real. Flow é um projeto pessoal em desenvolvimento individual, com funcionalidades planejadas identificadas nos detalhes. O jogo está disponível para Android; o link web é mantido como prévia, pois a expansão web está planejada.
 
 ## Currículo
 
@@ -148,10 +156,10 @@ Remove-Item Env:BASE_PATH
 - **Configurados:** nome, cargo, apresentação, tecnologias, e-mail, GitHub, LinkedIn e WhatsApp.
 - **Projetos:** cinco itens, com Flora e Flow na apresentação inicial; links informados configurados e status individual, sem resultados ou entregas comerciais inventados.
 - **Currículo:** PDF não fornecido; botão de download oculto.
-- **Experiência profissional:** SEAP — Maranhão cadastrada e visível; período, cargo formal e stack específica não informados.
-- **Jogo mobile:** stack ainda não informada.
+- **Experiência profissional:** Desenvolvedor Full Stack na SEAP — Maranhão desde 03/2023; término previsto em 12/2026; React, Node.js, Java e Python.
+- **Jogo mobile:** React Native e Expo, autoria integral, Android disponível e expansão web planejada.
 
-O portfólio funciona com essa configuração. Os itens ausentes não exigem preenchimento para executar o projeto; continuam ocultos ou identificados como demonstrativos até existirem informações reais.
+O portfólio funciona com essa configuração. Currículo e imagens são opcionais. As funcionalidades planejadas do Flow e as decisões técnicas propostas da Flora estão identificadas nos detalhes; não há métricas ou resultados inventados.
 
 ## Acessibilidade e validação
 

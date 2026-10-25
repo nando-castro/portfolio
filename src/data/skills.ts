@@ -2,7 +2,7 @@ export const skills = [
   {
     name: 'Linguagens',
     description: 'A base das aplicações',
-    items: ['TypeScript', 'JavaScript', 'Java'],
+    items: ['TypeScript', 'JavaScript', 'Java', 'Python'],
   },
   {
     name: 'Frontend',
@@ -19,7 +19,7 @@ export const skills = [
   {
     name: 'Mobile',
     description: 'Aplicações para dispositivos móveis',
-    items: ['React Native'],
+    items: ['React Native', 'Expo'],
   },
   {
     name: 'Backend',
